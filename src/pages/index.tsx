@@ -1,6 +1,7 @@
 import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 import Header from "@/components/Molecules/Header/Header";
+import WindowBox from "@/components/Organism/Window/WindowBox";
 
 export default function Home() {
   return (
@@ -13,6 +14,9 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <Header title="AI Story-teller" />
+        <div className={styles.content}>
+          <WindowBox title="Title" />
+        </div>
       </main>
     </>
   );
