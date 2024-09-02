@@ -13,9 +13,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <Header title="AI Story-teller" />
+        <Header title="AI StoryTeller" />
         <div className={styles.content}>
-          <WindowBox title="Title" />
+          <WindowBox title="Story Parameters" />
         </div>
       </main>
     </>

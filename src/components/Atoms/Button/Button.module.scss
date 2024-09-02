@@ -1,6 +1,16 @@
 .headerBtn {
-  padding: 6px 8px;
-  border: 1px solid blueviolet;
-  background-color: lightgray;
+  padding: 8px 16px;
   cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: var(--lavander);
+  font-size: 14px;
+
+  &:hover {
+    background: linear-gradient(
+      to right,
+      var(--blue-violet) 20%,
+      var(--fuchsia) 100%
+    );
+  }
 }
