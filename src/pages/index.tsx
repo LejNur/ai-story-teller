@@ -4,9 +4,18 @@ import Header from "@/components/Molecules/Header/Header";
 import WindowBox from "@/components/Organism/Window/WindowBox";
 import InputBox from "@/components/Molecules/InputBox/InputBox";
 import { useState } from "react";
+import SelectBox from "@/components/Molecules/SelectBox/SelectBox";
+import { genres } from "@/constants/common";
+import Button from "@/components/Atoms/Button/Button";
 
 export default function Home() {
   const [character, setCharacter] = useState("");
+  const [genre, setGenre] = useState("");
+
+  const handleGenerate = () => {
+    console.log("ciao");
+  };
+
   return (
     <>
       <Head>
@@ -24,6 +33,12 @@ export default function Home() {
               value={character}
               setValue={setCharacter}
             />
+            <SelectBox
+              label="Select label"
+              list={genres}
+              setAction={setGenre}
+            />
+            <Button label="generate" onClick={() => handleGenerate()} />
           </WindowBox>
         </div>
       </main>
