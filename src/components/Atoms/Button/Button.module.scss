@@ -5,6 +5,7 @@
   background-color: transparent;
   color: var(--lavander);
   font-size: 14px;
+  @include hover-transition();
 
   &:hover {
     background: linear-gradient(
@@ -12,5 +13,7 @@
       var(--blue-violet) 20%,
       var(--fuchsia) 100%
     );
+    font-size: 16px;
+    letter-spacing: 1.6px;
   }
 }

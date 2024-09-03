@@ -1,4 +1,5 @@
 import React, { ChangeEvent, Dispatch, SetStateAction } from "react";
+import style from "./SelectBox.module.scss";
 
 interface ListOption {
   label: string;
@@ -19,7 +20,7 @@ export default function SelectBox(props: SelectBoxProps) {
   };
 
   return (
-    <div>
+    <div className={style.selectBox}>
       <h3>{label}</h3>
       <select onChange={handleChange}>
         <option value="" hidden>
