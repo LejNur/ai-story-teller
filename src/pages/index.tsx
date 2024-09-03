@@ -2,8 +2,11 @@ import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 import Header from "@/components/Molecules/Header/Header";
 import WindowBox from "@/components/Organism/Window/WindowBox";
+import InputBox from "@/components/Molecules/InputBox/InputBox";
+import { useState } from "react";
 
 export default function Home() {
+  const [character, setCharacter] = useState("");
   return (
     <>
       <Head>
@@ -16,7 +19,11 @@ export default function Home() {
         <Header title="AI StoryTeller" />
         <div className={styles.content}>
           <WindowBox title="Story Parameters">
-            <p>I am children</p>
+            <InputBox
+              label="Character name"
+              value={character}
+              setValue={setCharacter}
+            />
           </WindowBox>
         </div>
       </main>
