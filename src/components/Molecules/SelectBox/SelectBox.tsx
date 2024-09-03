@@ -1,21 +1,21 @@
 import React, { ChangeEvent, Dispatch, SetStateAction } from "react";
 
-interface ListOptions {
+interface ListOption {
   label: string;
   value: string | number;
 }
 
 interface SelectBoxProps {
   label: string;
-  list: ListOptions[];
-  setAction?: Dispatch<SetStateAction<string>>;
+  list: ListOption[];
+  setAction: Dispatch<SetStateAction<string>>;
 }
 
 export default function SelectBox(props: SelectBoxProps) {
-  const { label, list } = props;
+  const { label, list, setAction } = props;
 
   const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    console.log(e.target.value);
+    setAction(e.target.value);
   };
 
   return (

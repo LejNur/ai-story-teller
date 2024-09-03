@@ -13,7 +13,7 @@ export default function Home() {
   const [genre, setGenre] = useState("");
 
   const handleGenerate = () => {
-    console.log("ciao");
+    console.log({ character, genre });
   };
 
   return (
@@ -27,14 +27,14 @@ export default function Home() {
       <main className={styles.main}>
         <Header title="AI StoryTeller" />
         <div className={styles.content}>
-          <WindowBox title="Story Parameters">
+          <WindowBox>
             <InputBox
               label="Character name"
               value={character}
               setValue={setCharacter}
             />
             <SelectBox
-              label="Select label"
+              label="Select Genre"
               list={genres}
               setAction={setGenre}
             />
