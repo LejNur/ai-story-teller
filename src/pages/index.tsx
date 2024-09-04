@@ -70,7 +70,7 @@ export default function Home() {
                 setAction={setGenre}
               />
               <SwitchBox
-                label="Genre"
+                label="For adults"
                 value={approveAdult}
                 setValue={setApproveAdult}
               />
