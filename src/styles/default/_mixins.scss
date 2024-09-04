@@ -12,12 +12,5 @@
 @mixin field() {
   background-color: transparent;
   color: var(--lavander);
-  border-image: linear-gradient(
-      to right,
-      var(--blue-violet) 20%,
-      var(--fuchsia) 100%
-    )
-    1;
-  border-width: 1px;
-  border-style: solid;
+  border: 1px solid var(--blue-violet);
 }

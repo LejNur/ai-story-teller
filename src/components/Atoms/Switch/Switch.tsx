@@ -10,7 +10,10 @@ export default function Switch(props: SwitchProps) {
   const { active, setActive } = props;
 
   return (
-    <div className={style.switch_container} onClick={() => setActive(!active)}>
+    <div
+      className={`${style.switch_container} ${active ? style.active : ""}`}
+      onClick={() => setActive(!active)}
+    >
       <div className={`${style.switcher} ${active ? style.active : ""}`} />
     </div>
   );
