@@ -2,6 +2,7 @@
   input {
     padding: 5px;
     border: 1px solid purple;
+    @include field();
   }
 
   h3 {

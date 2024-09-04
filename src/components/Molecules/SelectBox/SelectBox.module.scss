@@ -1,0 +1,15 @@
+.selectBox {
+  select {
+    padding: 5px 10px;
+    @include field();
+
+    option {
+      background-color: var(--background-dark);
+      color: var(--lavander);
+    }
+  }
+
+  h3 {
+    margin-bottom: 5px;
+  }
+}
