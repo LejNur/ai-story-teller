@@ -1,0 +1,26 @@
+.switch_container {
+  width: 60px;
+  height: 30px;
+  border: 1px solid purple;
+  border-radius: 35px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+
+  .switcher {
+    width: 25px;
+    height: 25px;
+    border: 1px solid purple;
+    border-radius: 50%;
+    position: absolute;
+    left: 2px;
+    background-color: grey;
+    transition: all 0.3s ease;
+  }
+
+  .active {
+    left: 30px;
+    background-color: purple;
+  }
+}
