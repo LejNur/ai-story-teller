@@ -1,5 +1,5 @@
 import Head from "next/head";
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/Home.module.scss";
 import Header from "@/components/Molecules/Header/Header";
 import WindowBox from "@/components/Organism/Window/WindowBox";
 import InputBox from "@/components/Molecules/InputBox/InputBox";
@@ -58,26 +58,28 @@ export default function Home() {
         <Header title="AI StoryTeller" />
         <div className={styles.content}>
           <WindowBox>
-            <InputBox
-              label="Character name"
-              value={character}
-              setValue={setCharacter}
-            />
-            <SelectBox
-              label="Select Genre"
-              list={genres}
-              setAction={setGenre}
-            />
-            <SwitchBox
-              label="Genre"
-              value={approveAdult}
-              setValue={setApproveAdult}
-            />
-            <Button
-              label="Generate"
-              onClick={() => handleGenerate()}
-              disabled={!character.trim().length || !isSelected}
-            />
+            <div className={styles.container}>
+              <InputBox
+                label="Character name"
+                value={character}
+                setValue={setCharacter}
+              />
+              <SelectBox
+                label="Select Genre"
+                list={genres}
+                setAction={setGenre}
+              />
+              <SwitchBox
+                label="Genre"
+                value={approveAdult}
+                setValue={setApproveAdult}
+              />
+              <Button
+                label="Generate"
+                onClick={() => handleGenerate()}
+                disabled={!character.trim().length || !isSelected}
+              />
+            </div>
 
             {loading ? (
               <div className={styles.loading}>

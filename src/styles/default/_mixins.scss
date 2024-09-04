@@ -1,3 +1,10 @@
 @mixin hover-transition() {
   transition: font-size 0.5s ease;
 }
+
+@mixin window-style($width: 100%) {
+  width: $width;
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}

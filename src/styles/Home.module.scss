@@ -1,0 +1,21 @@
+.main {
+  min-height: 100vh;
+
+  .content {
+    padding: 20px 0;
+
+    .container {
+      display: flex;
+      gap: 20px;
+      align-items: end;
+
+      Button {
+        margin-left: auto;
+      }
+    }
+
+    .response {
+      @include window-style(100%);
+    }
+  }
+}
