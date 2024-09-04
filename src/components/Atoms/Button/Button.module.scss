@@ -16,4 +16,13 @@
     font-size: 16px;
     letter-spacing: 1.6px;
   }
+
+  &:disabled {
+    &:hover {
+      background: none;
+      font-size: 14px;
+      letter-spacing: normal;
+      cursor: not-allowed;
+    }
+  }
 }
