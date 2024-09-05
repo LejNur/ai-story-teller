@@ -12,8 +12,8 @@ export default function SwitchBox(props: SwitchBoxProps) {
   const { label, value, setValue } = props;
   return (
     <div className={style.switch_box}>
-      <h3>{label}</h3>
       <Switch active={value} setActive={setValue} />
+      <h4>{label}</h4>
     </div>
   );
 }

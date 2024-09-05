@@ -15,7 +15,19 @@
     }
 
     .response {
-      @include window-style(100%);
+      margin: 50px 30px;
+      letter-spacing: 1.4px;
+      line-height: 1.8;
+      font-size: 18px;
+
+      Button {
+        margin-top: 20px;
+      }
+    }
+
+    .loading {
+      text-align: center;
+      margin-block: 100px;
     }
   }
 }

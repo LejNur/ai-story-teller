@@ -5,6 +5,7 @@
   background-color: transparent;
   color: var(--lavander);
   font-size: 14px;
+  letter-spacing: 1.4px;
   @include hover-transition();
 
   &:hover {
@@ -13,11 +14,11 @@
       var(--blue-violet) 20%,
       var(--fuchsia) 100%
     );
-    font-size: 16px;
-    letter-spacing: 1.6px;
   }
 
   &:disabled {
+    color: var(--lavander);
+    opacity: 0.4;
     &:hover {
       background: none;
       font-size: 14px;

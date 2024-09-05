@@ -13,4 +13,12 @@
   background-color: transparent;
   color: var(--lavander);
   border: 1px solid var(--blue-violet);
+  padding: 10px;
+}
+
+@mixin field-label() {
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: 1.6px;
+  margin-bottom: 5px;
 }
