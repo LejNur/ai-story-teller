@@ -14,6 +14,7 @@ export default async function handler(
 ) {
   if (req.method === "POST") {
     const { prompt } = req.body as Body;
+
     if (!prompt) {
       res.status(400).json("Body is missing");
     }

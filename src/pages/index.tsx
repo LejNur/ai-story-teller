@@ -19,17 +19,20 @@ export default function Home() {
   const [error, setError] = useState(false);
   const [approveAdult, setApproveAdult] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [question, setQuestion] = useState("");
+  const [conversationResponse, setConversationResponse] = useState("");
 
   const isSelected = genre !== "";
 
   const cleanResponse = () => {
     setResponse("");
+    setConversationResponse("");
   };
 
   const handleGenerate = async () => {
     setLoading(true);
     cleanResponse();
-    const prompt = `generate a ${genre} story for ${
+    const prompt = `Generate a ${genre} story for ${
       approveAdult ? "adult" : "children"
     }, with the character named ${character} and maximum 20 sentences`;
 
@@ -44,6 +47,7 @@ export default function Home() {
         });
 
         const data = await response.json();
+
         if (!data.ok) {
           throw new Error("error");
         }
@@ -52,6 +56,34 @@ export default function Home() {
     } catch (error) {
       setError(true);
     }
+    setLoading(false);
+  };
+
+  const handleConversation = async () => {
+    if (!response) return;
+
+    setLoading(true);
+    const prompt = `Story: ${response}
+    Question: ${question}
+    Answer the question based on the story above.`;
+
+    try {
+      const response = await fetch("/api/generate", {
+        headers: { "Content-Type": "application/json" },
+        method: "POST",
+        body: JSON.stringify({ prompt }),
+      });
+
+      const data = await response.json();
+
+      if (!data.ok) {
+        throw new Error("error");
+      }
+      setConversationResponse(data.message);
+    } catch (error) {
+      setError(true);
+    }
+
     setLoading(false);
   };
 
@@ -126,6 +158,25 @@ export default function Home() {
                     <div>
                       <p>{response}</p>
                     </div>
+
+                    <div className={styles.conversation}>
+                      <InputBox
+                        label="Ask a question about the story"
+                        value={question}
+                        setValue={setQuestion}
+                      />
+                      <Button
+                        label="Ask"
+                        onClick={handleConversation}
+                        disabled={!question.trim().length}
+                      />
+                    </div>
+
+                    {conversationResponse && (
+                      <p className={styles.conversation_response}>
+                        {conversationResponse}
+                      </p>
+                    )}
                   </>
                 ) : (
                   <h1>
