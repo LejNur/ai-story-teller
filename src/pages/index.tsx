@@ -98,13 +98,9 @@ export default function Home() {
   const handleVoice = () => {
     const utterance = new SpeechSynthesisUtterance(response);
     utterance.lang = "en-US";
-    // Get the list of available voices
     const voices = speechSynthesis.getVoices();
-
-    // Find a female voice. This is a basic example; you may need to adjust the logic to find the right voice.
     const femaleVoice = voices.find((voice) => voice.name.includes("Female"));
 
-    // If a female voice is found, set it
     if (femaleVoice) {
       utterance.voice = femaleVoice;
     }

@@ -39,7 +39,7 @@
         animation: typing 3.5s steps(40, end),
           blink-caret 0.75s step-end infinite;
         margin-block: 150px;
-        width: 24ch;
+        width: 25ch;
 
         span {
           font-style: italic;
@@ -108,7 +108,7 @@
     width: 0;
   }
   to {
-    width: 24ch;
+    width: 25ch;
   }
 }
 
