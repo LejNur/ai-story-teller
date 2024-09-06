@@ -21,6 +21,12 @@
       line-height: 1.8;
       font-size: 18px;
 
+      *:not(h1, Button) {
+        -webkit-animation: text-focus-in 1s
+          cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+        animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+      }
+
       h1 {
         text-align: center;
         font-weight: 200;
@@ -56,6 +62,31 @@
   }
 }
 
+@-webkit-keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
 /* The typing effect */
 @keyframes typing {
   from {
@@ -77,6 +108,7 @@
   }
 }
 
+//media query
 @media screen and (max-width: 787px) {
   .main {
     .content {
