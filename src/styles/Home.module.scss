@@ -3,6 +3,7 @@
 
   .content {
     padding: 20px 0;
+    @include window-style(100%);
 
     .container {
       display: flex;
@@ -20,14 +21,76 @@
       line-height: 1.8;
       font-size: 18px;
 
+      h1 {
+        text-align: center;
+        font-weight: 200;
+        font-size: 40px;
+        overflow: hidden;
+        border-right: 0.15em solid var(--blue-violet);
+        white-space: nowrap;
+        margin: 0 auto;
+        letter-spacing: 2px;
+        animation: typing 3.5s steps(40, end),
+          blink-caret 0.75s step-end infinite;
+        margin-block: 150px;
+        width: 24ch;
+
+        span {
+          font-style: italic;
+          font-weight: 300;
+          background-image: linear-gradient(var(--blue-violet), var(--fuchsia));
+          color: transparent;
+          background-clip: text;
+        }
+      }
+
       Button {
-        margin-top: 20px;
+        margin-bottom: 20px;
       }
     }
 
     .loading {
       text-align: center;
       margin-block: 100px;
+    }
+  }
+}
+
+/* The typing effect */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 24ch;
+  }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--blue-violet);
+  }
+}
+
+@media screen and (max-width: 787px) {
+  .main {
+    .content {
+      margin: 0 auto;
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        Button {
+          margin: 0;
+        }
+      }
     }
   }
 }

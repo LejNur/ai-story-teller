@@ -30,7 +30,6 @@ export default async function handler(
         const output = (
           result.response.candidates as GenerateContentCandidate[]
         )[0].content.parts[0].text;
-        console.log(output);
 
         if (output) {
           res.status(200).json({ ok: true, message: output });

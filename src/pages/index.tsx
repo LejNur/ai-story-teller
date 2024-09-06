@@ -22,8 +22,13 @@ export default function Home() {
 
   const isSelected = genre !== "";
 
+  const cleanResponse = () => {
+    setResponse("");
+  };
+
   const handleGenerate = async () => {
     setLoading(true);
+    cleanResponse();
     const prompt = `generate a ${genre} story for ${
       approveAdult ? "adult" : "children"
     }, with the character named ${character} and maximum 20 sentences`;
@@ -111,15 +116,21 @@ export default function Home() {
               </div>
             ) : (
               <div className={styles.response}>
-                {response && (
+                {response ? (
                   <>
-                    <div>{response}</div>
                     {isPlaying ? (
                       <Button label="Stop" onClick={handleStopVoice} />
                     ) : (
-                      <Button label="Speak" onClick={handleVoice} />
+                      <Button label="Tell me a story" onClick={handleVoice} />
                     )}
+                    <div>
+                      <p>{response}</p>
+                    </div>
                   </>
+                ) : (
+                  <h1>
+                    Hello, let me tell you a <span>story</span>...
+                  </h1>
                 )}
               </div>
             )}
