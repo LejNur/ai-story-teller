@@ -50,15 +50,29 @@
         }
       }
 
-      Button {
-        margin-bottom: 20px;
+      .conversation {
+        margin-block: 60px;
+        input {
+          width: 100%;
+          height: 50px;
+        }
+
+        Button {
+          margin-block: 10px;
+          position: absolute;
+          right: 0;
+        }
       }
     }
 
-    .loading {
-      text-align: center;
-      margin-block: 100px;
+    Button {
+      margin-bottom: 20px;
     }
+  }
+
+  .loading {
+    text-align: center;
+    margin-block: 100px;
   }
 }
 

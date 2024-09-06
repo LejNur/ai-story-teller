@@ -3,7 +3,7 @@ import styles from "@/styles/Home.module.scss";
 import Header from "@/components/Molecules/Header/Header";
 import WindowBox from "@/components/Organism/Window/WindowBox";
 import InputBox from "@/components/Molecules/InputBox/InputBox";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import SelectBox from "@/components/Molecules/SelectBox/SelectBox";
 import { genres } from "@/constants/common";
 import Button from "@/components/Atoms/Button/Button";
@@ -21,6 +21,14 @@ export default function Home() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [question, setQuestion] = useState("");
   const [conversationResponse, setConversationResponse] = useState("");
+
+  const latestAnswerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (latestAnswerRef.current) {
+      latestAnswerRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [conversationResponse]);
 
   const isSelected = genre !== "";
 
@@ -173,9 +181,12 @@ export default function Home() {
                     </div>
 
                     {conversationResponse && (
-                      <p className={styles.conversation_response}>
-                        {conversationResponse}
-                      </p>
+                      <div ref={latestAnswerRef}>
+                        {" "}
+                        <p className={styles.conversation_response}>
+                          {conversationResponse}
+                        </p>
+                      </div>
                     )}
                   </>
                 ) : (
